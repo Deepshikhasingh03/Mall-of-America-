@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080B0D" />
+    <meta
+      name="description"
+      content="Mall of America - America's Premier Retail & Entertainment Destination. Interactive Sales Deck."
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Mall of America | Premium Sales Deck</title>
+    <style>
+      body {
+        background-color: #080B0D;
+      }
+      #loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #080B0D;
+        transition: opacity 0.6s ease;
+      }
+      #loader.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #loader .loader-text {
+        font-family: sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.3em;
+        color: #D4AF37;
+        margin-top: 1.5rem;
+      }
+      #loader .loader-ring {
+        width: 48px;
+        height: 48px;
+        border: 2px solid rgba(212,175,55,0.2);
+        border-top-color: #D4AF37;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-text">MALL OF AMERICA</div>
+    </div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var loader = document.getElementById('loader');
+          if (loader) {
+            loader.classList.add('fade-out');
+            setTimeout(function() { loader.remove(); }, 600);
+          }
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>
